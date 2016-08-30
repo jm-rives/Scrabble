@@ -23,19 +23,40 @@ class Scrabble::Scoring
     end
   end
 
-#TODO: jm-rives/ allyssahursh FIX this"
-
   def self.score(word)
     raise ArgumentError if word =~ /[[:digit:]]/
-
+    score = 0
+    word.upcase.each_char do |letter|
+      score += letter_check(letter)
+    end
+    is_seven_or_more(word) ? score  += 50 : nil
+    return score
   end
 
   def self.highest_score_from(array_of_words)
+    high_score = 0
+    high_score_word = nil
+    array_of_words.each do |word|
+      current_word_score = score(word)
+      if current_word_score == high_score
+        if word.length < high_score_word.length
+          high_score_word = word
+        end
+      end
+      if current_word_score > high_score
+        high_score = current_word_score
+        high_score_word = word
+      end
+    end
+    return high_score_word
+  end
 
+  def self.is_seven_or_more(word)
+    if word.length >= 7
+      return true
+    end
+    return false
   end
 
 end
 
-
-puts Scrabble::Scoring.score("1234")
-puts Scrabble::Scoring.score("word")
