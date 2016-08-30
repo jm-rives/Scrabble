@@ -23,4 +23,19 @@ class Scrabble::Scoring
     end
   end
 
+#TODO: jm-rives/ allyssahursh FIX this"
+
+  def self.score(word)
+    raise ArgumentError if word =~ /[[:digit:]]/
+
+  end
+
+  def self.highest_score_from(array_of_words)
+
+  end
+
 end
+
+
+puts Scrabble::Scoring.score("1234")
+puts Scrabble::Scoring.score("word")
