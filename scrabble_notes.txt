@@ -2,7 +2,7 @@
 ====   key   =====
 ==================
 
-******* = Alyssa (remote repo host)
+alyssahursh = Alyssa (remote repo host)
 jm-rives = Joanna M. Rives (remote repo collaborater)
 
 TODO: handle = assigns task to specific dev
@@ -31,11 +31,11 @@ TODO: handle = assigns task to specific dev
 #### Project Expectations ####
 ##############################
 
-[ ] from project root file 
+[x] from project root file 
     () execute specs files by running RAKE { }
 [ ] lib should contain
     ( )  multiple files of ruby classess ( each ruby class gets its own file in lib) { }
-    ( )  module named "Scrabble" encloses entire project { } 
+    (X)  module named "Scrabble" encloses entire project                                        { } 
 [ ] Scrable::Scoring class contains data struture to store the individal letter scores as below
 
 Letter                        Value
