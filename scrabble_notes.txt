@@ -1,0 +1,87 @@
+==================
+====   key   =====
+==================
+
+******* = Alyssa (remote repo host)
+jm-rives = Joanna M. Rives (remote repo collaborater)
+
+TODO: handle = assigns task to specific dev
+
+[ ] = requirement for current test suite
+{ } = needs test suite
+
+######################
+### Learning Goals ###
+######################
+
+[ ] Use Test Driven Development (TDD) to write tests and code in parallel
+[ ] Create class and instance methods according to requirements
+[ ] Utilize Single Responsibility Principle to reduce code dependencies
+[ ] Utilize composition between classes, where appropriate
+
+#########################
+#### Agile Workflow #####
+#########################
+
+~ roles will switch every 30 minutes utilizing a timer
+~ 5 minute check in after switch
+~ feedback will be direct and spoken kindly and plainly
+
+###############################
+#### Project Expectations ####
+##############################
+
+[ ] from project root file 
+    () execute specs files by running RAKE { }
+[ ] lib should contain
+    ( )  multiple files of ruby classess ( each ruby class gets its own file in lib) { }
+    ( )  module named "Scrabble" encloses entire project { } 
+[ ] Scrable::Scoring class contains data struture to store the individal letter scores as below
+
+Letter                        Value
+
+A, E, I, O, U, L, N, R, S, T   1
+D, G                           2
+B, C, M, P                     3
+F, H, V, W, Y                  4
+K                              5
+J, X                           8
+Q, Z                           10
+
+[ ] utilize minitest specs format
+[ ] organize tests into DESCRIBE blocks
+[ ] use require { }
+[ ] use require realtive { }
+[ ] use include 
+
+################
+#### WAVE 1 ####
+################
+
+[ ] Scrabble::Scoring class must have >= ** 8 ** specs   { }
+    ( ) contains self.score(word)                         { }
+        < > returns word score                             { }
+        < > word input is a STRING                          { }
+        < > seven letter words recieve a 50 PT BONUS          { }
+[ ] self.highest_score_from(array_of_words)
+    ( )  returns the word in the array with the highest score  { }
+    ( ) IF tie
+        ( ) word composed of fewest tiles wins                  { }
+            UNLESS
+        ( ) top score is a tie between multiple words and one 7 letter word  { }
+             THEN
+             7 letter word wins
+        ( ) IF multiple words of == tile length and multiple words of == score { }
+            Then first word in array wins
+
+
+#####################
+#### END WAVE 1 ####
+####################
+
+
+
+
+
+ *** DO ADVANCE TO NEXT REQUIREMENT TIER UNTIL MVP MET AND TEST ALL GREEN ***
+
