@@ -38,4 +38,35 @@ describe "Testing Scrabble" do
     expect(Scrabble::Scoring.score("1a3b")).must_raise(ArgumentError)
     expect(Scrabble::Scoring.score("A234")).must_raise(ArgumentError)
   end
+
+  it 'Test that highest score from method returns highest score word' do
+    expect(Scrabble::Scoring.highest_score_from(["APPLE", "QUILT", "JAM"])).must_equal("QUILT")
+    expect(Scrabble::Scoring.highest_score_from(["PIZZAZZ", "JUJUBES", "BUZZARD"])).must_equal("PIZZAZZ")
+  end
+
+  it 'Two words with equal values will return the shortest word' do
+    expect(Scrabble::Scoring.highest_score_from(["zuzim", "jam", "guzzle"])).must_equal("zuzim")
+  end
+
+  it 'Two words with equal values will return the 7 letter word' do
+    expect(Scrabble::Scoring.highest_score_from(["jumbuck", "nuzzle", "banjax"])).must_equal("jumbuck")
+  end
+
+  it 'Test words with the same legnth and score and will return 1st word entered' do
+    expect(Scrabble::Scoring.highest_score_from(["hazzan", "fezzes", "wizzes"])).must_equal("hazzan")
+    expect(Scrabble::Scoring.highest_score_from(["fezzes", "hazzan", "wizzes"])).must_equal("fezzes")
+    expect(Scrabble::Scoring.highest_score_from(["wizzes", "fezzes", "hazzan"])).must_equal("wizzes")
+  end 
 end
+
+
+
+
+
+
+
+
+
+
+
+
