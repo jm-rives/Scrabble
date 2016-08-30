@@ -32,11 +32,11 @@ TODO: handle = assigns task to specific dev
 ##############################
 
 [x] from project root file 
-    () execute specs files by running RAKE { }
+    (x) execute specs files by running RAKE { }
 [ ] lib should contain
     ( )  multiple files of ruby classess ( each ruby class gets its own file in lib) { }
     (X)  module named "Scrabble" encloses entire project                                        { } 
-[ ] Scrable::Scoring class contains data struture to store the individal letter scores as below
+[x] Scrable::Scoring class contains data struture to store the individal letter scores as below
 
 Letter                        Value
 
@@ -48,30 +48,30 @@ K                              5
 J, X                           8
 Q, Z                           10
 
-[ ] utilize minitest specs format
-[ ] organize tests into DESCRIBE blocks
+[x ] utilize minitest specs format
+[x ] organize tests into DESCRIBE blocks
 [ ] use require { }
-[ ] use require realtive { }
+[x ] use require realtive { }
 [ ] use include 
 
 ################
 #### WAVE 1 ####
 ################
 
-[ ] Scrabble::Scoring class must have >= ** 8 ** specs   { }
-    ( ) contains self.score(word)                         { }
-        < > returns word score                             { }
-        < > word input is a STRING                          { }
-        < > seven letter words recieve a 50 PT BONUS          { }
+[] Scrabble::Scoring class must have >= ** 8 ** specs   {-}
+    ( ) contains self.score(word)                         {-}
+        < > returns word score                             {x }
+        < > word input is a STRING                          {x }
+        < > seven letter words recieve a 50 PT BONUS          {x }
 [ ] self.highest_score_from(array_of_words)
-    ( )  returns the word in the array with the highest score  { }
+    ( )  returns the word in the array with the highest score  {x }
     ( ) IF tie
-        ( ) word composed of fewest tiles wins                  { }
+        ( ) word composed of fewest tiles wins                  {x }
             UNLESS
-        ( ) top score is a tie between multiple words and one 7 letter word  { }
+        ( ) top score is a tie between multiple words and one 7 letter word  {x }
              THEN
              7 letter word wins
-        ( ) IF multiple words of == tile length and multiple words of == score { }
+        ( ) IF multiple words of == tile length and multiple words of == score {x }
             Then first word in array wins
 
 
