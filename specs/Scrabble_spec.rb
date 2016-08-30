@@ -32,4 +32,10 @@ describe "Testing Scrabble" do
     expect(Scrabble::Scoring.score("JUJUBES")).must_equal(73)
     expect(Scrabble::Scoring.score("BUZZARD")).must_equal(78)
   end
+
+  it 'Test that user input ONLY contains alpha characters' do
+    expect(Scrabble::Scoring.score(1234)).must_raise(ArgumentError)
+    expect(Scrabble::Scoring.score("1a3b")).must_raise(ArgumentError)
+    expect(Scrabble::Scoring.score("A234")).must_raise(ArgumentError)
+  end
 end
