@@ -1,9 +1,8 @@
 require_relative 'spec_helper.rb'
 
 require_relative '../Lib/Scoring.rb'
-require_relative '../lib/Player.rb'
 
-describe "Testing Scrabble" do
+describe "Testing Scoring Class" do
 
   it 'Test that a letter input returns the appropriate letter value' do
     expect(Scrabble::Scoring.letter_check("A")).must_equal(1)
