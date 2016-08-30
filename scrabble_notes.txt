@@ -36,7 +36,7 @@ TODO: handle = assigns task to specific dev
 [ ] lib should contain
     ( )  multiple files of ruby classess ( each ruby class gets its own file in lib) { }
     (X)  module named "Scrabble" encloses entire project                                        { } 
-[ ] Scrable::Scoring class contains data struture to store the individal letter scores as below
+[x] Scrable::Scoring class contains data struture to store the individal letter scores as below
 
 Letter                        Value
 
@@ -58,7 +58,7 @@ Q, Z                           10
 #### WAVE 1 ####
 ################
 
-[ ] Scrabble::Scoring class must have >= ** 8 ** specs   { }
+[] Scrabble::Scoring class must have >= ** 8 ** specs   { }
     ( ) contains self.score(word)                         { }
         < > returns word score                             { }
         < > word input is a STRING                          { }
