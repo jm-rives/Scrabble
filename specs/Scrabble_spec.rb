@@ -1,6 +1,6 @@
 require_relative 'spec_helper.rb'
 
-require_relative '../Lib/Scoring.rb'
+require_relative '../lib/Scoring.rb'
 
 describe "Testing Scoring Class" do
 

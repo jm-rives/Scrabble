@@ -60,3 +60,4 @@ class Scrabble::Scoring
 
 end
 
+#puts Scrabble::Scoring.score("QQQQQQQQ")
