@@ -82,4 +82,31 @@ describe "Testing Player Class" do
     expect(@player11.won?).must_equal(true)
   end
 
+  it 'Test that .tiles returns a collection of playable letters' do
+    player12 = Scrabble::Player.new("Whiskey")
+    expect(player12.tiles.class).must_equal(Array)
+    player12.tiles.each do |x| 
+      expect(x.length).must_equal(1)
+      expect(x).must_be(/[[:alpha:]]/)
+    end
+  end
+
+  it 'Test that .draw_tiles(tile_bag) fills tile_array to equal 7 letters' do
+    player13 = Scrabble::Player.new("FrenchToast")
+    tile_bag = Scrabble::TileBag.new
+    player13.draw_tiles(tile_bag)
+    expect(player13.tiles.length).must_equal(7)
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
