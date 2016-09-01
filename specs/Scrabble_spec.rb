@@ -16,10 +16,26 @@ describe "Testing Scoring Class" do
     expect(Scrabble::Scoring.letter_check("W")).must_equal(4)
   end
 
+  it 'Test that a non-alpha input raises ArgumentError' do
+    expect( proc {Scrabble::Scoring.letter_check(".")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.letter_check("9")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.letter_check(" ")}).must_raise(ArgumentError)
+  end
+
+  it 'Test that a multi-digit input raises ArgumentError' do
+    expect( proc {Scrabble::Scoring.letter_check("")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.letter_check("AH")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.letter_check("98")}).must_raise(ArgumentError)
+  end
+
   it 'Test that a word returns the correct score' do
     expect(Scrabble::Scoring.score("APPLE")).must_equal(9)
     expect(Scrabble::Scoring.score("QUILT")).must_equal(14)
     expect(Scrabble::Scoring.score("JAM")).must_equal(12)
+  end
+
+  it 'Test that a word input cant be nil' do
+    expect( proc {Scrabble::Scoring.score("")}).must_raise(ArgumentError)
   end
 
 
@@ -39,6 +55,9 @@ describe "Testing Scoring Class" do
     expect( proc {Scrabble::Scoring.score("1234")}).must_raise(ArgumentError)
     expect( proc {Scrabble::Scoring.score("1a3b")}).must_raise(ArgumentError)
     expect( proc {Scrabble::Scoring.score("A234")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.score("A23/")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.score("A23 ")}).must_raise(ArgumentError)
+    expect( proc {Scrabble::Scoring.score(" ")}).must_raise(ArgumentError)
   end
 
   it 'Test that highest score from method returns highest score word' do

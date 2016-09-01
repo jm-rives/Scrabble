@@ -16,6 +16,7 @@ class Scrabble::Scoring
 
 
   def self.letter_check(input)
+    raise ArgumentError if input =~ /[[:digit:][:punct:][:blank:]]/ || input.length != 1
     @@LETTER_VALUE_ARRAY.each do |key, value|
       if key.include? input
         return value
@@ -24,7 +25,7 @@ class Scrabble::Scoring
   end
 
   def self.score(word)
-    raise ArgumentError if word =~ /[[:digit:]]/
+    raise ArgumentError if word =~ /[[:digit:][:punct:][:blank:]]/ || word.length == 0
     score = 0
     word.upcase.each_char do |letter|
       score += letter_check(letter)
