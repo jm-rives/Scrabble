@@ -24,16 +24,19 @@ describe 'Testing TileBag Class' do
 
   it 'Test .draw_tiles(num) removes tiles from the default set' do
     bag2 = Scrabble::TileBag.new
+    number_of_tiles = bag2.bag.length
     bag2.draw_tiles(6)
-    expect(bag2.bag.length).must_equal(92)
+    expect(bag2.bag.length).must_equal(number_of_tiles - 6)
+    number_of_tiles = bag2.bag.length
     bag2.draw_tiles(4)
-    expect(bag2.bag.length).must_equal(88)
+    expect(bag2.bag.length).must_equal(number_of_tiles - 4)
   end
 
   it 'Test that .tiles_remaining returns number of tiles remaing in bag' do
     bag3 = Scrabble::TileBag.new
+    number_of_tiles = bag3.bag.length
     bag3.draw_tiles(6)
-    expect(bag3.tiles_remaining).must_equal(92)
+    expect(bag3.tiles_remaining).must_equal(number_of_tiles - 6)
   end
 
   it 'Test that .draw_tiles(num) does not permit a negative or 0 input for num' do
@@ -64,7 +67,7 @@ describe 'Testing TileBag Class' do
     bag8 = Scrabble::TileBag.new
     bag8.tiles_remaining.times do
       array_of_one_tile = bag8.draw_tiles(1) # ["A"]
-      expect(array_of_one_tile.first).wont_include /[[:digit:][:punct:][:blank:]]/
+      expect('ABCDEFGHIJKLMNOPQRSTUVWXYZ').must_include(array_of_one_tile.first.upcase)
     end
   end
 

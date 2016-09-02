@@ -69,13 +69,43 @@ describe "Testing Scoring Class" do
     expect(Scrabble::Scoring.highest_score_from(["zuzim", "jam", "guzzle"])).must_equal("zuzim")
   end
 
-  it 'Two words with equal values will return the 7 letter word' do
-    expect(Scrabble::Scoring.highest_score_from(["jumbuck", "nuzzle", "banjax"])).must_equal("jumbuck")
-  end
+  # it 'Two words with equal values will return the 7 letter word' do
+  #   expect(Scrabble::Scoring.highest_score_from(["jumbuck", "nuzzle", "banjax"])).must_equal("jumbuck")
+  # end
 
   it 'Test words with the same legnth and score and will return 1st word entered' do
     expect(Scrabble::Scoring.highest_score_from(["hazzan", "fezzes", "wizzes"])).must_equal("hazzan")
     expect(Scrabble::Scoring.highest_score_from(["fezzes", "hazzan", "wizzes"])).must_equal("fezzes")
     expect(Scrabble::Scoring.highest_score_from(["wizzes", "fezzes", "hazzan"])).must_equal("wizzes")
   end
+
+  it 'Test words with same score will preference the 7 letter word if applicable' do
+    expect(Scrabble::Scoring.highest_score_from(["zzzzzz", "aaaaddd"])).must_equal("aaaaddd")
+    expect(Scrabble::Scoring.highest_score_from(["zzzzzz", "aaaaddd", "dddaaaa"])).must_equal("aaaaddd")
+    expect(Scrabble::Scoring.highest_score_from(["zzzzzz", "aaaaddd"])).must_equal("aaaaddd")
+    expect(Scrabble::Scoring.highest_score_from(["zzzzzz", "aaaaddd", "dddaaaq"])).must_equal("dddaaaq")
+  end
+
+  it "Test that a 6 letter word will win over a 7 letter word IF the 6 letter word has a higher score." do
+    expect(Scrabble::Scoring.highest_score_from(["zzzzzz", "aaaadad"])).must_equal("zzzzzz")
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

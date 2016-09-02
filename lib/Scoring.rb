@@ -37,13 +37,19 @@ class Scrabble::Scoring
   def self.highest_score_from(array_of_words)
     high_score = 0
     high_score_word = nil
+    # Evaluate .max method instead? 
     array_of_words.each do |word|
       current_word_score = score(word)
       if current_word_score == high_score
-        if word.length < high_score_word.length
+        if word.length == 7 && high_score_word.length != 7
           high_score_word = word
+          high_score = current_word_score
+        elsif word.length < high_score_word.length
+          high_score_word = word
+          high_score = current_word_score
         end
       end
+
       if current_word_score > high_score
         high_score = current_word_score
         high_score_word = word
@@ -58,7 +64,6 @@ class Scrabble::Scoring
     end
     return false
   end
-
 end
 
 #puts Scrabble::Scoring.score("QQQQQQQQ")
