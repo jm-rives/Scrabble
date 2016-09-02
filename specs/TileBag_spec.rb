@@ -70,5 +70,4 @@ describe 'Testing TileBag Class' do
       expect('ABCDEFGHIJKLMNOPQRSTUVWXYZ').must_include(array_of_one_tile.first.upcase)
     end
   end
-
 end

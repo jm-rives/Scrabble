@@ -17,6 +17,29 @@ class Scrabble::Player
     if won?
       return false
     else
+
+      tester_tiles = @tiles # Copy of player's tiles to test on without modifying original
+      if tester_tiles.length != 0
+        word.each_char do |word_char|
+          (0...tester_tiles.length).each do |index|
+            if tester_tiles[index] == word_char
+              tester_tiles[index] = nil
+              break
+            end 
+            raise ArgumentError
+          end
+        end
+      end
+
+      # word.each_char do |x|
+      #   puts x
+      #   print @tiles
+      #   puts @tiles.include? x
+      #   if @tiles.include? x == false
+      #     raise ArgumentError
+      #   end
+      # end
+
       score = Scrabble::Scoring.score(word)
       @total_score += score
       plays << word

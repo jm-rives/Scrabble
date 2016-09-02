@@ -86,15 +86,33 @@ describe "Testing Player Class" do
     expect(player12.tiles.class).must_equal(Array)
     player12.tiles.each do |x|
       expect(x.length).must_equal(1)
-      expect(x).wont_include /[[:digit:][:punct:][:blank:]]/
+      expect('ABCDEFGHIJKLMNOPQRSTUVWXYZ').must_include(x.upcase)
     end
   end
 
-  it 'Test that .draw_tiles(tile_bag) fills tile_array to equal 7 letters' do
-    player13 = Scrabble::Player.new("FrenchToast")
+  it 'Test that legal word play returns score' do
+    player13 = Scrabble::Player.new("Bourbon")
     tile_bag13 = Scrabble::TileBag.new
     player13.draw_tiles(tile_bag13)
-    expect(player13.tiles.length).must_equal(7)
+    letters_available = player13.tiles
+    word_to_test = "#{letters_available[0]}#{letters_available[1]}#{letters_available[2]}"
+    expect(player13.play(word_to_test)).must_equal(Scrabble::Scoring.score(word_to_test))
   end
+
+  it 'Test that illegal word play raise ArgumentError' do
+    player14 = Scrabble::Player.new("Bourbon")
+    tile_bag14 = Scrabble::TileBag.new
+    player14.draw_tiles(tile_bag14)
+    letters_available = player14.tiles
+    word_to_test = "#{letters_available[0]}#{letters_available[1]}#{letters_available[2]}XX"
+    expect( proc {player14.play(word_to_test)}).must_raise ArgumentError
+  end
+
+  # it 'Test that .draw_tiles(tile_bag) fills tile_array to equal 7 letters' do
+  #   player13 = Scrabble::Player.new("FrenchToast")
+  #   tile_bag13 = Scrabble::TileBag.new
+  #   player13.draw_tiles(tile_bag13)
+  #   expect(player13.tiles.length).must_equal(7)
+  # end
 
 end
