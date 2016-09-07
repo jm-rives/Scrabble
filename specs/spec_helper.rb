@@ -7,3 +7,5 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+# do we have enough negative tests
